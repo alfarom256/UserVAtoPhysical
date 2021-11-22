@@ -162,9 +162,8 @@ NTSTATUS ManualVirtualToPhys(PVOID lpSystemBuffer, PULONG pcbWritten)
 	PVAD_SUBSECTION pSection = lpTargetVad->Subsection;
 	PVAD_SUBSECTION pTargetSection = NULL;
 	
-	// while 
 	while (pSection->NextSubsection != NULL) {
-		// if the index of the page is greater than the number of pages
+		// if the index of the page is less than the number of pages
 		// in the current section, we've found the section that has the 
 		// pte that describes our target memory!
 		if (indexOfPage < pSection->PtesInSubsection) {
